@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>EmailJS diagnostic</title>
+  <style>
+    :root { --bg:#0a0b1a; --card:#14172b; --text:#e8e9f5; --muted:#9aa0c4; --line:#2a2e4d; --ok:#4ade80; --bad:#f87171; }
+    * { box-sizing: border-box; }
+    body { margin:0; padding:24px 16px; background:var(--bg); color:var(--text); font:15px/1.5 Inter, system-ui, sans-serif; }
+    main { max-width:640px; margin:0 auto; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; }
+    h1 { margin:0 0 4px; font-size:1.3rem; }
+    p { color:var(--muted); margin:6px 0 14px; }
+    label { display:block; margin:12px 0 4px; font-size:.85rem; color:var(--muted); }
+    input, textarea { width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#0f1224; color:var(--text); font:inherit; }
+    button { margin-top:16px; padding:11px 22px; border:0; border-radius:999px; color:#fff; font-weight:600; font-size:.95rem; font-family:inherit; cursor:pointer; background:linear-gradient(135deg,#8b5cf6,#3b82f6); }
+    button:disabled { opacity:.6; cursor:wait; }
+    #out, #findOut { margin-top:18px; padding:14px; border-radius:10px; border:1px solid var(--line); background:#0f1224; white-space:pre-wrap; word-break:break-word; font:13px/1.55 ui-monospace, Menlo, Consolas, monospace; min-height:60px; }
+    #findOut { margin-top:18px; }
+    .ok { color:var(--ok); } .bad { color:var(--bad); }
+    code { color:#c4b5fd; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>EmailJS diagnostic</h1>
+    <p>Sends <strong>one real test email</strong> to your template's recipient and prints EmailJS's exact reply. Open with Live Server. This file is not linked from the portfolio; you can delete it when done.</p>
+
+    <label for="sid">Service ID</label><input id="sid" value="service_4oxvsi6" />
+    <label for="tid">Template ID</label><input id="tid" value="template_h03m5yl" />
+    <label for="pk">Public Key</label><input id="pk" value="sA9zoPQtOJMPBhd9Z" />
+    <label for="n">name</label><input id="n" value="Diagnostic Test" />
+    <label for="e">email (visitor / Reply-To)</label><input id="e" type="email" value="test-visitor@example.com" />
+    <label for="s">subject</label><input id="s" value="EmailJS diagnostic" />
+    <label for="m">message</label><textarea id="m" rows="3">If you can read this in Gmail, EmailJS works.</textarea>
+
+    <button id="go">Send test email</button>
+    <div id="out" role="status">Result will appear here.</div>
+
+    <hr style="border:0;border-top:1px solid var(--line);margin:26px 0 8px" />
+    <h1 style="font-size:1.1rem">Find my Template ID</h1>
+    <p>If EmailJS says <code>template ID not found</code>, the ID is probably typed with look-alike characters (<code>1</code> vs <code>l</code>, <code>0</code> vs <code>o</code>). This tries every look-alike spelling of the ID above, one per second, and stops at the first one EmailJS accepts. <strong>The one that works sends one real test email.</strong> Wrong spellings send nothing.</p>
+    <button id="find">Find my Template ID</button>
+    <div id="findOut" role="status">Not run yet.</div>
+  </main>
+
+  <script>
+    var out = document.getElementById("out"), btn = document.getElementById("go");
+    function v(id) { return document.getElementById(id).value.trim(); }
+    function show(cls, text) { out.className = cls; out.textContent = text; }
+
+    btn.addEventListener("click", async function () {
+      btn.disabled = true; show("", "Sending...");
+      var body = {
+        service_id: v("sid"), template_id: v("tid"), user_id: v("pk"),
+        template_params: { name: v("n"), email: v("e"), subject: v("s"), message: v("m") }
+      };
+      try {
+        var res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+          method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body)
+        });
+        var text = await res.text();
+        var lines = ["HTTP status: " + res.status, "EmailJS says: " + text, "Page origin: " + location.origin, ""];
+        if (res.status === 200) lines.push("SUCCESS. Check the inbox (and Spam) of the template's To Email. If the email is there with the right name/email/subject/message, the credentials and template are correct, and the portfolio form will work.");
+        else if (/template/i.test(text) && /not found/i.test(text)) lines.push("FIX: the Template ID does not exist in this account. Copy it from Email Templates (letter o vs digit 0).");
+        else if (/service/i.test(text) && /not found/i.test(text)) lines.push("FIX: the Service ID does not exist in this account. Copy it from Email Services.");
+        else if (/public key|user.?id|account not found/i.test(text)) lines.push("FIX: the Public Key is wrong. Copy it from Account > General.");
+        else if (res.status === 412 || /gmail_api|insufficient|scopes/i.test(text)) lines.push("FIX: reconnect the Gmail service in Email Services and allow sending email.");
+        else if (res.status === 403) lines.push("FIX: domain/origin restriction. Add this page's origin (above) in Account > Security, or relax the restriction.");
+        else if (res.status === 422 || /variable/i.test(text)) lines.push("FIX: the template variables are invalid. Use {{name}} {{email}} {{subject}} {{message}}.");
+        else if (res.status === 429) lines.push("FIX: rate / monthly limit reached. Wait and retry.");
+        show(res.status === 200 ? "ok" : "bad", lines.join("\n"));
+      } catch (err) {
+        show("bad", "The request never reached EmailJS: " + err.message + "\nCheck your internet connection or any ad-blocker/firewall blocking emailjs.com.");
+      } finally { btn.disabled = false; }
+    });
+
+    // ---- Find my Template ID: tries look-alike spellings (1/l and 0/o) of the ID in the box above ----
+    var findBtn = document.getElementById("find"), findOut = document.getElementById("findOut");
+    function variants(id) {
+      var prefix = id.indexOf("template_") === 0 ? "template_" : "";
+      var core = id.slice(prefix.length), groups = { "1": "1l", "l": "1l", "0": "0o", "o": "0o" };
+      var list = [""];
+      core.split("").forEach(function (ch) {
+        var opts = (groups[ch] || ch).split("");
+        var next = [];
+        list.forEach(function (p) { opts.forEach(function (o) { next.push(p + o); }); });
+        list = next;
+      });
+      // put the exact typed ID first, drop duplicates
+      var all = [core].concat(list).filter(function (x, i, a) { return a.indexOf(x) === i; });
+      return all.map(function (x) { return prefix + x; });
+    }
+    function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+    findBtn.addEventListener("click", async function () {
+      findBtn.disabled = true; btn.disabled = true;
+      var list = variants(v("tid")), log = ["Trying " + list.length + " spellings...", ""];
+      findOut.className = ""; findOut.textContent = log.join("\n");
+      var found = null, stopped = null;
+      for (var i = 0; i < list.length; i++) {
+        try {
+          var res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ service_id: v("sid"), template_id: list[i], user_id: v("pk"),
+              template_params: { name: v("n"), email: v("e"), subject: v("s"), message: v("m") } })
+          });
+          var text = await res.text();
+          if (res.status === 200) { log.push("[OK ] " + list[i] + "  -> 200 " + text); found = list[i]; break; }
+          if (res.status === 400 && /template/i.test(text) && /not found/i.test(text)) log.push("[no ] " + list[i] + "  -> template not found");
+          else { log.push("[STOP] " + list[i] + "  -> HTTP " + res.status + ": " + text); stopped = { id: list[i], status: res.status, text: text }; break; }
+        } catch (err) { log.push("[STOP] request failed: " + err.message); stopped = {}; break; }
+        findOut.textContent = log.join("\n");
+        await sleep(1100);                       // EmailJS allows about one request per second
+      }
+      if (found) {
+        log.push("", "FOUND. The correct Template ID is:", "    " + found, "", "1) Put it in script.js:  const EMAILJS_TEMPLATE_ID = \"" + found + "\";", "2) Check Gmail (and Spam): one test email should have arrived.");
+        findOut.className = "ok";
+      } else if (stopped) {
+        log.push("", "Stopped on a different problem (shown above), not a spelling problem. Fix that first (412: reconnect Gmail in Email Services; 403: allow this domain in Account > Security; wrong key/service: copy them from the dashboard) and run again.");
+        findOut.className = "bad";
+      } else {
+        log.push("", "None of the look-alike spellings exist in this account. The ID is not just a typo of this one. Open EmailJS > Email Templates, open your template and copy its Template ID with the copy button (it is shown as 'Template ID' next to the name). Also make sure you are logged into the same account that owns the Service ID and Public Key above.");
+        findOut.className = "bad";
+      }
+      findOut.textContent = log.join("\n");
+      findBtn.disabled = false; btn.disabled = false;
+    });
+  </script>
+</body>
+</html>

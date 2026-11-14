@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Gandepalli Preetham | Software Developer &amp; Freelance Web Developer</title>
+  <meta name="description" content="Portfolio of Gandepalli Preetham, a B.Tech Computer Science and Engineering student at Vignan's Institute of Information Technology (Autonomous) and freelance web developer. Projects, skills, services and contact details." />
+  <meta name="author" content="Gandepalli Preetham" />
+  <meta name="theme-color" content="#0a0e1f" />
+
+  <!-- Open Graph / social preview.
+       TODO after deployment: if your site address is not https://preethamgandepalli2006-source.github.io/portfolio/,
+       change og:url and og:image below (they must be full https:// addresses). -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gandepalli Preetham" />
+  <meta property="og:title" content="Gandepalli Preetham | Software Developer &amp; Freelance Web Developer" />
+  <meta property="og:description" content="B.Tech CSE student and freelance web developer. Explore my projects, skills and services." />
+  <meta property="og:url" content="https://preethamgandepalli2006-source.github.io/portfolio/" />
+  <meta property="og:image" content="https://preethamgandepalli2006-source.github.io/portfolio/assets/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Gandepalli Preetham, Software Developer and Freelance Web Developer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gandepalli Preetham | Software Developer &amp; Freelance Web Developer" />
+  <meta name="twitter:image" content="https://preethamgandepalli2006-source.github.io/portfolio/assets/images/og-image.png" />
+
+  <!-- Favicon (GP initials) -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+
+  <!-- Structured data (helps search engines understand the page). Contains no email or phone number. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gandepalli Preetham",
+    "jobTitle": "Computer Science Student and Freelance Web Developer",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Vignan's Institute of Information Technology (Autonomous)" },
+    "sameAs": [
+      "https://github.com/preethamgandepalli2006-source",
+      "https://www.linkedin.com/in/preetham-gandepalli-4a7b02348/"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ================= NAVBAR (sticky) ================= -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="#home" class="logo" aria-label="Gandepalli Preetham - Home">GP<span>.</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ================= HOME ================= -->
+    <section id="home" class="hero section" aria-label="Introduction">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <p class="eyebrow">Hello, I'm</p>
+          <h1>Gandepalli <span class="gradient-text">Preetham</span></h1>
+          <p class="typing-line">I'm a <span id="typing" class="gradient-text"></span><span class="cursor" aria-hidden="true">|</span></p>
+          <p class="hero-desc">
+            I'm a Computer Science Engineering student passionate about software development and building responsive,
+            user-friendly web applications. I enjoy solving problems and transforming ideas into practical digital solutions.
+          </p>
+          <p class="hero-meta">B.Tech CSE &middot; Vignan's Institute of Information Technology (Autonomous) &middot; Expected graduation 2028</p>
+          <div class="btn-row">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <!-- "Hire Me" jumps to the contact form and pre-fills the subject (script.js) -->
+            <a href="#contact" class="btn btn-ghost" data-hire>Hire Me</a>
+            <!-- RESUME: the PDF is assets/resume.pdf. If the file is missing, script.js shows "Resume Not Added Yet". -->
+            <a href="assets/resume.pdf" class="btn btn-ghost" id="resumeBtn" data-resume download="Gandepalli_Preetham_Resume.pdf">Download Resume</a>
+          </div>
+          <div class="social-row">
+            <a href="https://github.com/preethamgandepalli2006-source" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
+            <!-- LinkedIn URL is configured in script.js (LINKEDIN_URL) -->
+            <a href="https://www.linkedin.com/in/preetham-gandepalli-4a7b02348/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" data-linkedin>LinkedIn</a>
+            <a href="mailto:preethamgandepalli2006@gmail.com" aria-label="Send email">Email</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="avatar-ring">
+            <!-- PROFILE PHOTO: assets/profile.jpg (square, circular crop via CSS object-fit: cover). Relative path, so it also works on GitHub Pages. -->
+            <img src="assets/profile.jpg" alt="Portrait of Gandepalli Preetham" width="320" height="320" fetchpriority="high" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <h2 class="section-title reveal" id="about-title"><span>01</span> About Me</h2>
+        <div class="glass about-card reveal">
+          <p>
+            I'm <strong>Gandepalli Preetham</strong>, a B.Tech Computer Science and Engineering student at
+            <strong>Vignan's Institute of Information Technology (Autonomous)</strong>, graduating in 2028.
+            I'm passionate about software development and building responsive, user-friendly web applications,
+            and I learn best by building real projects.
+          </p>
+          <div class="stat-row">
+            <div class="stat"><strong data-count="8.75" data-decimals="2">8.75</strong><span>Overall CGPA</span></div>
+            <div class="stat"><strong data-count="4">4</strong><span>Semesters Completed</span></div>
+            <div class="stat"><strong id="aboutRepoCount">-</strong><span>Public GitHub Repositories</span></div>
+          </div>
+        </div>
+
+        <div class="grid grid-3 info-grid">
+          <article class="glass info-card reveal">
+            <div class="icon" aria-hidden="true">&#127891;</div>
+            <h3>Education</h3>
+            <p>B.Tech in Computer Science and Engineering at Vignan's Institute of Information Technology (Autonomous). Expected graduation: 2028. CGPA 8.75 after four semesters.</p>
+          </article>
+          <article class="glass info-card reveal">
+            <div class="icon" aria-hidden="true">&#128161;</div>
+            <h3>Technical Interests</h3>
+            <ul class="chips"><li>Software Development</li><li>Web Development</li><li>Python Programming</li><li>Full-Stack Development</li></ul>
+          </article>
+          <article class="glass info-card reveal">
+            <div class="icon" aria-hidden="true">&#128187;</div>
+            <h3>Development Skills</h3>
+            <p>C, C++, Python, HTML, CSS, JavaScript, Node.js, Express.js, Firebase and SQL, plus Git, GitHub and VS Code for everyday work.</p>
+          </article>
+          <article class="glass info-card reveal">
+            <div class="icon" aria-hidden="true">&#128188;</div>
+            <h3>Freelancing Interests</h3>
+            <p>Business websites, personal portfolios, landing pages, redesigns and website maintenance for small businesses and individuals.</p>
+          </article>
+          <article class="glass info-card info-wide reveal">
+            <div class="icon" aria-hidden="true">&#127919;</div>
+            <h3>Career Objective</h3>
+            <p>To begin my career in software development through internships and entry-level opportunities, while growing my full-stack skills and continuing to build websites for freelance clients.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <!-- No percentage bars: skill levels are not formally verified, so none are invented. -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 class="section-title reveal" id="skills-title"><span>02</span> Skills</h2>
+        <div class="grid grid-3">
+          <article class="glass skill-card reveal">
+            <div class="icon" aria-hidden="true">&#128187;</div>
+            <h3>Programming</h3>
+            <ul class="chips"><li>C</li><li>C++</li><li>Python</li></ul>
+          </article>
+          <article class="glass skill-card reveal">
+            <div class="icon" aria-hidden="true">&#127760;</div>
+            <h3>Frontend</h3>
+            <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </article>
+          <article class="glass skill-card reveal">
+            <div class="icon" aria-hidden="true">&#9881;&#65039;</div>
+            <h3>Backend</h3>
+            <ul class="chips"><li>Node.js</li><li>Express.js</li></ul>
+          </article>
+          <article class="glass skill-card reveal">
+            <div class="icon" aria-hidden="true">&#128451;</div>
+            <h3>Database</h3>
+            <ul class="chips"><li>SQL</li><li>DBMS</li><li>Firebase</li></ul>
+          </article>
+          <article class="glass skill-card reveal">
+            <div class="icon" aria-hidden="true">&#128736;&#65039;</div>
+            <h3>Tools</h3>
+            <ul class="chips"><li>Git</li><li>GitHub</li><li>VS Code</li></ul>
+          </article>
+          <article class="glass skill-card reveal">
+            <div class="icon" aria-hidden="true">&#129309;</div>
+            <h3>Professional Skills</h3>
+            <ul class="chips"><li>Problem Solving</li><li>Time Management</li><li>Communication</li><li>Teamwork</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education" class="section" aria-labelledby="education-title">
+      <div class="container">
+        <h2 class="section-title reveal" id="education-title"><span>03</span> Education</h2>
+        <div class="glass edu-card reveal">
+          <div>
+            <h3>B.Tech in Computer Science and Engineering</h3>
+            <p class="muted">Vignan's Institute of Information Technology (Autonomous)</p>
+            <p class="muted">Expected graduation: 2028</p>
+          </div>
+          <!-- CGPA 8.75 = the average of the four semester results below. A different figure is NOT shown until it is confirmed in your academic records. -->
+          <div class="cgpa-badge" aria-label="Overall CGPA 8.75 out of 10">
+            <strong>8.75</strong><span>Overall CGPA</span>
+          </div>
+        </div>
+
+        <!-- Education timeline: four completed semesters, then the expected graduation year.
+             data-score is used by script.js to animate each bar (score / 10). -->
+        <ol class="timeline" aria-label="Education timeline">
+          <li class="glass timeline-item reveal"><h4>Semester 1</h4><p class="score">8.13</p><div class="bar" role="img" aria-label="8.13 out of 10"><i data-score="8.13"></i></div></li>
+          <li class="glass timeline-item reveal"><h4>Semester 2</h4><p class="score">8.51</p><div class="bar" role="img" aria-label="8.51 out of 10"><i data-score="8.51"></i></div></li>
+          <li class="glass timeline-item reveal"><h4>Semester 3</h4><p class="score">9.40</p><div class="bar" role="img" aria-label="9.40 out of 10"><i data-score="9.40"></i></div></li>
+          <li class="glass timeline-item reveal"><h4>Semester 4</h4><p class="score">8.95</p><div class="bar" role="img" aria-label="8.95 out of 10"><i data-score="8.95"></i></div></li>
+          <li class="glass timeline-item timeline-end reveal"><h4>Expected graduation</h4><p class="score gradient-text">2028</p><p class="muted">B.Tech CSE</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 class="section-title reveal" id="projects-title"><span>04</span> My Projects</h2>
+
+        <!-- A. FEATURED PROJECTS
+             Text below comes only from the descriptions you supplied. No fake links, demos or features.
+             - "Source Code" button: added automatically by script.js ONLY when a public GitHub repository with the same name
+               exists on your account (e.g. a repo called "SmartBuy").
+             - "Live Demo" button: add data-demo-url="https://your-real-demo" to the <article> when a real demo exists.
+             - TODO (you): replace the cover images with real screenshots (assets/images/) and add the technologies for CodeRefactor AI
+               (the only card still showing "Focus areas"). -->
+        <h3 class="subsection-title reveal">Featured Projects</h3>
+        <div class="grid grid-2 featured-grid">
+
+          <article class="glass project-card featured reveal" data-project-key="coderefactorai" data-demo-url="">
+            <img src="assets/images/coderefactor-ai.svg" alt="CodeRefactor AI project cover" loading="lazy" width="640" height="360" />
+            <div class="project-body">
+              <h3>CodeRefactor AI</h3>
+              <p class="proj-tagline">Intelligent Code Refactoring and Performance Optimization</p>
+              <dl class="proj-facts">
+                <dt>Problem</dt>
+                <dd>Improving the structure and speed of existing code by hand is slow and repetitive.</dd>
+                <dt>About</dt>
+                <dd>An AI-powered development project for intelligent code refactoring and performance optimization.</dd>
+                <dt>Key features</dt>
+                <dd><ul class="proj-list"><li>Intelligent code refactoring</li><li>Performance optimization</li></ul></dd>
+                <dt>Focus areas</dt>
+                <dd><ul class="chips"><li>AI-Powered</li><li>Code Refactoring</li><li>Performance Optimization</li></ul></dd>
+              </dl>
+              <span class="badge-note" data-badge>Personal / academic project &middot; not listed as a public GitHub repository</span>
+            </div>
+          </article>
+
+          <article class="glass project-card featured reveal" data-project-key="smartbuy" data-demo-url="">
+            <img src="assets/images/smartbuy.svg" alt="SmartBuy project cover" loading="lazy" width="640" height="360" />
+            <div class="project-body">
+              <h3>SmartBuy</h3>
+              <p class="proj-tagline">Product Comparison Website</p>
+              <dl class="proj-facts">
+                <dt>Problem</dt>
+                <dd>Comparing similar products one by one makes it harder for shoppers to decide what to buy.</dd>
+                <dt>About</dt>
+                <dd>A product comparison website that helps users compare products and make better purchasing decisions.</dd>
+                <dt>Key features</dt>
+                <dd><ul class="proj-list"><li>Product comparison</li><li>Support for better purchasing decisions</li></ul></dd>
+                <dt>Technologies</dt>
+                <dd><ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Node.js</li><li>Express.js</li><li>SQLite</li></ul></dd>
+              </dl>
+              <span class="badge-note" data-badge>Personal / academic project &middot; not listed as a public GitHub repository</span>
+            </div>
+          </article>
+
+          <article class="glass project-card featured reveal" data-project-key="careerbridgeai" data-demo-url="">
+            <img src="assets/images/careerbridge-ai.svg" alt="CareerBridge AI project cover" loading="lazy" width="640" height="360" />
+            <div class="project-body">
+              <h3>CareerBridge AI</h3>
+              <p class="proj-tagline">Intelligent Career Guidance and Resume Analysis System</p>
+              <dl class="proj-facts">
+                <dt>Problem</dt>
+                <dd>Students often don't know which skills they are missing or which career path to follow.</dd>
+                <dt>About</dt>
+                <dd>An AI-powered application, currently in development, that analyzes resumes, identifies skill gaps, recommends suitable career opportunities and generates personalized career roadmaps.</dd>
+                <dt>Key features</dt>
+                <dd><ul class="proj-list"><li>Resume analysis</li><li>Skill gap identification</li><li>Career opportunity recommendations</li><li>Personalized career roadmaps</li></ul></dd>
+                <dt>Technologies</dt>
+                <dd><ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Node.js</li><li>Express.js</li><li>Firebase</li><li>Gemini AI</li></ul></dd>
+              </dl>
+              <span class="badge-note" data-badge>Personal / academic project &middot; not listed as a public GitHub repository</span>
+            </div>
+          </article>
+
+          <article class="glass project-card featured reveal" data-project-key="safenest" data-demo-url="">
+            <img src="assets/images/safenest.svg" alt="SafeNest project cover" loading="lazy" width="640" height="360" />
+            <div class="project-body">
+              <h3>SafeNest</h3>
+              <p class="proj-tagline">Student Rental Scam Prevention System</p>
+              <dl class="proj-facts">
+                <dt>Problem</dt>
+                <dd>Students looking for rentals can fall victim to fake or suspicious listings.</dd>
+                <dt>About</dt>
+                <dd>A web application to prevent student rental scams using verified listings, scam detection, community reviews, reporting and rental agreement checking.</dd>
+                <dt>Key features</dt>
+                <dd><ul class="proj-list"><li>Verified listings</li><li>Scam detection</li><li>Community reviews</li><li>Reporting</li><li>Rental agreement checking</li></ul></dd>
+                <dt>Technologies</dt>
+                <dd><ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>SQLite</li></ul></dd>
+              </dl>
+              <span class="badge-note" data-badge>Personal / academic project &middot; not listed as a public GitHub repository</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- B. GITHUB REPOSITORIES
+             Rendered entirely by script.js from the GitHub REST API (the single source of truth).
+             No repository is written in this HTML, so nothing here can go out of date. -->
+        <h3 class="subsection-title reveal">GitHub Repositories</h3>
+
+        <div class="repo-toolbar reveal">
+          <div class="repo-search">
+            <label for="repoSearch" class="sr-only">Search repositories</label>
+            <input type="search" id="repoSearch" placeholder="Search repositories..." autocomplete="off" />
+          </div>
+          <div class="repo-select">
+            <label for="repoSort" class="sr-only">Sort repositories</label>
+            <select id="repoSort">
+              <option value="updated">Recently updated</option>
+              <option value="created">Newest created</option>
+              <option value="name">Name (A-Z)</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-small btn-primary" id="repoRefresh">Refresh Projects</button>
+        </div>
+
+        <div class="lang-filters" id="langFilters" role="group" aria-label="Filter repositories by language"></div>
+
+        <div class="sync-bar" role="status" aria-live="polite">
+          <span id="repoCountText">Connecting to GitHub...</span>
+          <span class="sync-time" id="syncTime"></span>
+        </div>
+        <div class="sync-alert" id="syncAlert" role="alert" hidden></div>
+        <p class="sync-note" id="syncNote" hidden></p>
+
+        <div class="grid grid-3 repo-grid" id="repoGrid" aria-busy="true">
+          <!-- Loading skeletons only (not repositories). script.js replaces them with real data. -->
+          <div class="repo-skeleton" aria-hidden="true"></div>
+          <div class="repo-skeleton" aria-hidden="true"></div>
+          <div class="repo-skeleton" aria-hidden="true"></div>
+        </div>
+        <p class="repo-empty" id="repoEmpty" hidden></p>
+        <noscript><p class="repo-empty">Enable JavaScript to load my repositories, or visit my <a href="https://github.com/preethamgandepalli2006-source?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub profile</a>.</p></noscript>
+
+        <!-- C. GITHUB PROFILE -->
+        <div class="glass github-profile reveal" id="githubProfile">
+          <div class="gp-main">
+            <svg class="gh-icon" viewBox="0 0 16 16" width="44" height="44" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            <div>
+              <h3>GitHub Profile</h3>
+              <p class="muted">Username: <strong>preethamgandepalli2006-source</strong></p>
+              <p class="muted" id="repoCount" hidden></p>
+            </div>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/preethamgandepalli2006-source" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
+            <a class="btn btn-ghost" href="https://github.com/preethamgandepalli2006-source?tab=repositories" target="_blank" rel="noopener noreferrer">View All Repositories</a>
+            <a class="btn btn-ghost" href="https://github.com/preethamgandepalli2006-source?tab=overview" target="_blank" rel="noopener noreferrer">Contribution Activity</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <!-- No client counts or reviews are shown. "What you receive" lists the deliverables I offer.
+         Each "Contact Me" button jumps to the contact form and pre-fills the subject (script.js, data-service). -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="container">
+        <h2 class="section-title reveal" id="services-title"><span>05</span> My Services</h2>
+        <div class="grid grid-3">
+          <article class="glass service-card reveal">
+            <div class="icon" aria-hidden="true">&#127970;</div>
+            <h3>Business Website Development</h3>
+            <p>A professional, responsive website that presents your business and services online.</p>
+            <h4 class="receive-title">What you receive</h4>
+            <ul class="receive-list"><li>Multi-section responsive website</li><li>Contact form and social / WhatsApp links</li><li>Basic SEO setup (titles and descriptions)</li><li>Help with deploying the site</li></ul>
+            <a class="btn btn-small btn-ghost service-btn" href="#contact" data-service="Business Website Development">Contact Me</a>
+          </article>
+          <article class="glass service-card reveal">
+            <div class="icon" aria-hidden="true">&#128100;</div>
+            <h3>Personal Portfolio Development</h3>
+            <p>A personal website that showcases your projects, skills and resume.</p>
+            <h4 class="receive-title">What you receive</h4>
+            <ul class="receive-list"><li>Home, About, Skills and Projects sections</li><li>Resume download and social links</li><li>Layout for mobile, tablet and desktop</li><li>Help with deploying the site</li></ul>
+            <a class="btn btn-small btn-ghost service-btn" href="#contact" data-service="Personal Portfolio Development">Contact Me</a>
+          </article>
+          <article class="glass service-card reveal">
+            <div class="icon" aria-hidden="true">&#128640;</div>
+            <h3>Landing Page Development</h3>
+            <p>A focused single page built to present one offer, product or event.</p>
+            <h4 class="receive-title">What you receive</h4>
+            <ul class="receive-list"><li>One clean, focused page</li><li>Clear call-to-action and contact option</li><li>Mobile-friendly layout</li><li>Lightweight, fast-loading code</li></ul>
+            <a class="btn btn-small btn-ghost service-btn" href="#contact" data-service="Landing Page Development">Contact Me</a>
+          </article>
+          <article class="glass service-card reveal">
+            <div class="icon" aria-hidden="true">&#128241;</div>
+            <h3>Responsive Website Design</h3>
+            <p>Layouts that look and work well on phones, tablets and desktops.</p>
+            <h4 class="receive-title">What you receive</h4>
+            <ul class="receive-list"><li>Mobile, tablet and desktop layouts</li><li>Responsive navigation and images</li><li>Checks on different screen sizes</li></ul>
+            <a class="btn btn-small btn-ghost service-btn" href="#contact" data-service="Responsive Website Design">Contact Me</a>
+          </article>
+          <article class="glass service-card reveal">
+            <div class="icon" aria-hidden="true">&#128260;</div>
+            <h3>Website Redesign</h3>
+            <p>A modern new look and better usability for an existing website.</p>
+            <h4 class="receive-title">What you receive</h4>
+            <ul class="receive-list"><li>Refreshed visual design</li><li>Cleaner structure and navigation</li><li>Responsive, mobile-friendly pages</li><li>Your existing content carried over</li></ul>
+            <a class="btn btn-small btn-ghost service-btn" href="#contact" data-service="Website Redesign">Contact Me</a>
+          </article>
+          <article class="glass service-card reveal">
+            <div class="icon" aria-hidden="true">&#128295;</div>
+            <h3>Website Maintenance</h3>
+            <p>Regular updates and fixes to keep your website current and working.</p>
+            <h4 class="receive-title">What you receive</h4>
+            <ul class="receive-list"><li>Content and design updates</li><li>Fixes for bugs and layout issues</li><li>Checks for broken links and responsiveness</li></ul>
+            <a class="btn btn-small btn-ghost service-btn" href="#contact" data-service="Website Maintenance">Contact Me</a>
+          </article>
+        </div>
+
+        <div class="glass cta-banner reveal">
+          <h3>Have a project idea? Let's build something great together.</h3>
+          <a class="btn btn-primary" href="#contact" data-hire>Hire Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CERTIFICATES AND ACHIEVEMENTS ================= -->
+    <!-- Filled by script.js from the CERTIFICATES list at the top of script.js. That list is empty until you add
+         real certificates, so nothing here is invented. -->
+    <section id="certificates" class="section" aria-labelledby="certificates-title">
+      <div class="container">
+        <h2 class="section-title reveal" id="certificates-title"><span>06</span> Certifications &amp; Achievements</h2>
+        <div class="grid grid-3" id="certGrid"></div>
+        <p class="repo-empty" id="certEmpty">Certificates and achievements will be listed here.</p>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 class="section-title reveal" id="contact-title"><span>07</span> Contact Me</h2>
+        <div class="contact-grid">
+          <div class="glass contact-info reveal">
+            <h3>Let's work together</h3>
+            <p class="muted">Have a project in mind or an opportunity to discuss? Get in touch.</p>
+            <ul class="contact-list">
+              <li><strong>Phone</strong><a href="tel:+918919990149">8919990149</a></li>
+              <li><strong>GitHub Email</strong><a href="mailto:preethamgandepalli2006@gmail.com">preethamgandepalli2006@gmail.com</a></li>
+              <li><strong>GitHub Profile</strong><a href="https://github.com/preethamgandepalli2006-source" target="_blank" rel="noopener noreferrer">https://github.com/preethamgandepalli2006-source</a></li>
+              <!-- LinkedIn profile URL is set with LINKEDIN_URL at the top of script.js -->
+              <li><strong>LinkedIn Profile</strong><a href="https://www.linkedin.com/in/preetham-gandepalli-4a7b02348/" target="_blank" rel="noopener noreferrer" data-linkedin data-show-url>linkedin.com/in/preetham-gandepalli-4a7b02348/</a></li>
+              <!-- LinkedIn account email: shown as text, but the link opens the LinkedIn PROFILE (LINKEDIN_URL), never mailto: -->
+              <li><strong>LinkedIn Account Email</strong><a href="https://www.linkedin.com/in/preetham-gandepalli-4a7b02348/" target="_blank" rel="noopener noreferrer" data-linkedin data-keep-text aria-label="Open LinkedIn profile (account email vigneshgandepalli2006@gmail.com)">vigneshgandepalli2006@gmail.com</a></li>
+            </ul>
+            <div class="btn-row contact-buttons">
+              <a class="btn btn-primary btn-email" href="mailto:preethamgandepalli2006@gmail.com?subject=Website%20enquiry%20from%20your%20portfolio">Send Email</a>
+              <a class="btn btn-whatsapp" href="https://wa.me/918919990149?text=Hi%20Preetham%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+              <a class="btn btn-ghost btn-linkedin" href="https://www.linkedin.com/in/preetham-gandepalli-4a7b02348/" target="_blank" rel="noopener noreferrer" data-linkedin>LinkedIn Profile</a>
+            </div>
+          </div>
+
+          <form class="glass contact-form reveal" id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required />
+              <small class="error" id="nameError" role="alert"></small>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+              <small class="error" id="emailError" role="alert"></small>
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+              <small class="error" id="subjectError" role="alert"></small>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <small class="error" id="messageError" role="alert"></small>
+            </div>
+            <!-- Honeypot: hidden from people, bots fill it in. Submissions with this field filled are dropped. -->
+            <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off" /></div>
+            <button type="submit" class="btn btn-primary" id="formSubmit">Send Message</button>
+            <!-- Sending uses EmailJS: EMAILJS_SERVICE_ID / EMAILJS_TEMPLATE_ID / EMAILJS_PUBLIC_KEY are at the top of script.js (see README). -->
+            <p class="form-note" id="formStatus" role="status" aria-live="polite"></p>
+            <p class="form-fallback" id="formFallback" hidden></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="logo" aria-label="Back to the top">GP<span>.</span></a>
+          <p><strong>Gandepalli Preetham</strong></p>
+          <p class="muted">Computer Science student &middot; Software &amp; freelance web developer</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer navigation">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://github.com/preethamgandepalli2006-source" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/preetham-gandepalli-4a7b02348/" target="_blank" rel="noopener noreferrer" data-linkedin>LinkedIn</a></li>
+            <li><a href="mailto:preethamgandepalli2006@gmail.com">Email</a></li>
+            <li><a href="https://wa.me/918919990149" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="assets/resume.pdf" data-resume download="Gandepalli_Preetham_Resume.pdf">Resume</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">&copy; <span id="year"></span> Gandepalli Preetham. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+  <!-- EmailJS browser SDK (official package @emailjs/browser, pinned version) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
