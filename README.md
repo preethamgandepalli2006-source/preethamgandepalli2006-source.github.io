@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Gandepalli Preetham - Portfolio Website
 
 Plain HTML5, CSS3 and JavaScript. No build step, no dependencies (only Google Fonts via CDN).
@@ -168,3 +169,6 @@ Common EmailJS replies: `400 ... template ID not found` or `service ID not found
 
 ### "The template ID not found" (400)
 This means the ID in `script.js` is not a template in the account that owns your Public Key. The most common cause is a look-alike typo: digit `1` vs letter `l`, digit `0` vs letter `o`. Open `emailjs-test.html` with Live Server and click **Find my Template ID**: it tries every look-alike spelling and tells you which one EmailJS accepts. Otherwise copy the ID with the copy button from EmailJS > Email Templates, and make sure you are logged into the same account that owns the Service ID and Public Key.
+=======
+# my-portfolio
+>>>>>>> 515da3cd16651d2641a30454f1c371e5b5ef3a32
